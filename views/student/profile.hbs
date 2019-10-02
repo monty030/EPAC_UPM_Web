@@ -1,0 +1,16 @@
+<head>
+    <link rel='stylesheet' href='stylesheets/style.css' />
+</head>
+
+<h1 class="title">Your profile</h1>
+{{# if user}}
+<section class="container">
+    <ul class="profile">
+        <li><b>Name:</b> {{user.name}}</li>
+        <li><b>Surname:</b> {{user.surname}}</li>
+        <li><b>Student ID:</b> {{user.studentID}}</li>
+        <li><b>Teacher ID:</b> {{user.teacherID}}</li>
+        <li><b>Email:</b> {{user.email}}</li>
+    </ul>
+</section>
+{{/if}}

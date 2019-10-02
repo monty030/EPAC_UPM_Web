@@ -1,0 +1,26 @@
+<head>
+    <link rel='stylesheet' href='stylesheets/style.css' />
+</head>
+<div class="container summary">
+    {{#if firstAttempt}}
+    <h1 class="subtitle">What a first run! Here are your results:</h1>
+    {{else if betterActivityResult}}
+    <h1 class="subtitle">Congrats! Here are your results:</h1>
+    {{else}}
+    <h2 class="subtitle">Your best results:</h2>
+    {{/if}}
+
+    <div>
+        <ul>
+            <li>Attempts: {{attemptNumber}}/{{numberOfAttempts}}</li>
+            <li>Best Attempt's Grade: {{grade}}/10</li>
+            <li>Best Attempt's Points: {{points}}</li>
+        </ul>
+    </div>
+    <div class="btn-center">
+        {{#if canRetry}}
+        <a href="retry" class="btn2 btn4">Try again</a>
+        {{/if}}
+        <a href="/dashboard" class="btn2 btn4">Go Back</a>
+    </div>
+</div>

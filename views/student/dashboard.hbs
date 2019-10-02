@@ -1,0 +1,56 @@
+<head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+    <script type="text/javascript" src="javascripts/dashboard.js"></script>
+</head>
+
+<h1 class="title">Welcome to the Student Section</h1>
+<div class="btn-center">
+    <a href="dashboard/refresh-activities" class="btn2 btn3">Refresh Activities!</a>
+</div>
+
+<div id="activity_list" class="lists">
+    <h1 class="subtitle">Activity list:</h1>
+    {{#if activities}}
+    <input id="activity_search" class="search searchbar" placeholder="Search..." />
+    <span class="sort" data-sort="id">Sort by ID</span>
+    <span class="sort" data-sort="title">Sort by Title</span>
+    <span class="sort" data-sort="author">Sort by Author</span>
+    <span class="sort" data-sort="category">Sort by Category</span>
+    <ul class="list activity-grid">
+        {{#each activities}}
+        <div class="activity-container newpad">
+            <li onclick="location.href='{{this.activityLink}}';">
+                <h3 class="title">{{this.title}} - </h3>
+                <h3 class="id">{{this.activityID}}</h3>
+                <h4 class="author">{{this.creatorName}}</h4>
+                <h4 class="category">{{this.category}}</h4>
+                <h4 class="tags">{{this.tags}}</h4>
+            </li>
+        </div>
+        {{/each}}
+    </ul>
+    {{/if}}
+</div>
+<div id="completed_activity_list" class="lists">
+    <h1 class="subtitle">Completed activities:</h1>
+    {{#if completedActivities}}
+    <input id="completed_activity_search" class="search searchbar" placeholder="Search..." />
+    <span class="sort" data-sort="id">Sort by ID</span>
+    <span class="sort" data-sort="title">Sort by Title</span>
+    <span class="sort" data-sort="author">Sort by Author</span>
+    <span class="sort" data-sort="category">Sort by Category</span>
+    <ul class="list activity-grid">
+        {{#each completedActivities}}
+        <div class="activity-container newpad">
+            <li onclick="location.href='{{this.activityLink}}/done';">
+                <h3 class="title">{{this.title}} - </h3>
+                <h3 class="id">{{this.activityID}}</h3>
+                <h4 class="author">{{this.creatorName}}</h4>
+                <h4 class="category">{{this.category}}</h4>
+                <h4 class="tags">{{this.tags}}</h4>
+            </li>
+        </div>
+        {{/each}}
+    </ul>
+    {{/if}}
+</div>

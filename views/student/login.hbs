@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="stylesheets/index.css">
+    <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="stylesheet" href="stylesheets/nav.css">
+    <script type="text/javascript" src="javascripts/student/login.js" defer></script>
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to EFPAC's interactive platform</h1>
+    </header>
+    {{#if signUpSuccess}}
+    <h1 class="success">Sign Up Successful!</h1>
+    {{/if}}
+    {{#if errors}}
+    <section>
+        <ul>
+            {{#each errors}}
+            <li>
+                <h1 class="error">{{this.msg}}</h1>
+            </li>
+            {{/each}}
+        </ul>
+    </section>
+    {{/if}}
+    <div>
+        <div class="wrap-login">
+            <img src="img/logoupm.png" class="center">
+            <h1 class="title">Student Login</h1>
+            <section class="container">
+                <form id="login-form" class="student-form" action="/student-login" method="POST" autocomplete="on">
+                    <div>
+                        <input type="text" id="email" name="email" placeholder="user" autocomplete="username"
+                            class="wrap-input input100 studentemail" required>
+                        <label for="email" class="appendEmail">@alumnos.upm.es</label>
+                    </div>
+                    <div>
+                        <input type="password" id="password" placeholder="password" name="password"
+                            class="wrap-input input100" autocomplete="current-password" required>
+                    </div>
+                    <div>
+                        <input type="checkbox" onclick="showPassword()">Show Password
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+            </section>
+            <h4>Don't have an account yet? <a href="student-sign-up">Sign Up!</a></h4>
+            <h4>Not a student? <a href="/">Go Back</a></h4>
+        </div>
+    </div>
+</body>
+<script> </script> {{!-- Avoids initial transition bug  --}}
+
+</html>

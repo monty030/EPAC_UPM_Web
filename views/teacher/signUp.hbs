@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script type="text/javascript" src="/javascripts/teacher/signUp.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <a class="back btn" href="/">Go Back</a>
+        <h1>Welcome to EFPAC's interactive platform. This section is for teachers only!</h1>
+    </header>
+    {{#if errors}}
+    <section>
+        <ul>
+            {{#each errors}}
+            <li>
+                <h1 class="error">{{this.msg}}</h1>
+            </li>
+            {{/each}}
+        </ul>
+    </section>
+    {{/if}}
+
+    <section class="container">
+        <form id="sign-up-form" class="teacher-form" action="/teacher-sign-up" method="POST">
+            <h1 class="title">Teacher Sign Up</h1>
+            <div class="msg"></div>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" autocapitalize="words" autocomplete="name" required>
+            </div>
+            <div>
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" autocapitalize="words" autocomplete="family-name"
+                    required>
+            </div>
+            <div>
+                <label for="teacherID">Teacher ID</label>
+                <input type="text" id="teacherID" name="teacherID" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" oninput="validatePassword()"
+                    autocomplete="new-password" required>
+                <p class="passwordError" id="correctPassword"></p>
+            </div>
+            <div>
+                <label for="confirmPassword">Confirm your password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" oninput="checkConfirm()"
+                    autocomplete="new-password" required>
+                <p class="passwordError" id="validatePasswords"></p>
+            </div>
+            <div>
+                <label style="display: inline !important;">Show passwords</label>
+                <input type="checkbox" onclick="showPasswords()" class="inline">
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+    </section>
+</body>
+
+</html>
