@@ -1,0 +1,16 @@
+version: '3'
+services:
+    sql:
+        image: mysql:5.7.22
+        container_name: sql
+        restart: unless-stopped
+        ports:
+            - 31201:3306
+        volumes:
+            - ./volumes/sql/data:/var/lib/mysql
+            - ./NOMBRE_SQL_A_IMPORTAR.sql:/docker-entrypoint-initdb.d/1.sql
+        environment:
+            - MYSQL_ROOT_PASSWORD=rX-xSF9-T:s"¿#T%tf!r2}/st
+            - MYSQL_DATABASE=mavis-msd
+            - MYSQL_USER=mavis-msd
+            - MYSQL_PASSWORD=uw0QiBQ+T3n+b#|9l8kml&(rJ
